@@ -22,15 +22,15 @@ public class CustomerController {
         ModelAndView modelAndView = new ModelAndView("/customer/list");
         int pageNum = 0;
         if(page.isPresent() && page.get() > 1) pageNum = page.get() - 1;
+        PageRequest pageSplitter = new PageRequest(pageNum, 3);
         if(keyword.isPresent()){
-            customers = customerService.findAllByFirstNameContaining(keyword.get(), new PageRequest(pageNum, 3));
+            customers = customerService.findAllByFirstNameContaining(keyword.get(), pageSplitter);
             modelAndView.addObject("keyword", keyword.get());
         } else {
-            customers = customerService.findAll(new PageRequest(pageNum, 3));
+            customers = customerService.findAll(pageSplitter);
         }
 
         modelAndView.addObject("customers", customers);
         return modelAndView;
-
     }
 }
