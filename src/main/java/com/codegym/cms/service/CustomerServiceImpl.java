@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 public class CustomerServiceImpl implements CustomerService {
     @Autowired
     CustomerRepository customerRepository;
+
     @Override
     public Page<Customer> findAllByFirstNameContaining(String firstName, Pageable pageable) {
         return customerRepository.findAllByFirstNameContaining(firstName, pageable);
@@ -18,4 +19,16 @@ public class CustomerServiceImpl implements CustomerService {
     public Page<Customer> findAll(Pageable pageable) {
         return customerRepository.findAll(pageable);
     }
+
+    @Override
+    public Iterable<Customer> findAll() {
+        return customerRepository.findAll();
+    }
+
+    @Override
+    public void save(Customer customer) {
+        customerRepository.save(customer);
+    }
+
+
 }

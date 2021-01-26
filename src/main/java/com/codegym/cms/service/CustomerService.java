@@ -8,4 +8,8 @@ public interface CustomerService {
     Page<Customer> findAllByFirstNameContaining(String firstName, Pageable pageable);
 
     Page<Customer> findAll(Pageable pageable);
+
+    Iterable<Customer> findAll();
+
+    void save(Customer customer);
 }
