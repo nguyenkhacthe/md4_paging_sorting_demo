@@ -54,7 +54,7 @@ public class CustomerController {
     @PostMapping("/add")
     public ModelAndView addCustomer(@Valid @ModelAttribute Customer customer, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         if(bindingResult.hasFieldErrors()) {
-            return new ModelAndView("/500", "xemesis", "Hiếu lợn");
+            return new ModelAndView("/customer/add");
         }
         customerService.save(customer);
         redirectAttributes.addFlashAttribute("message", "Added");

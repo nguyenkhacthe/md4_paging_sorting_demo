@@ -11,9 +11,9 @@ public class Customer {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
-    @NotEmpty
+    @NotEmpty(message = "Pleas input first name")
     private String firstName;
-    @NotEmpty
+    @NotEmpty(message = "please input last name")
     private String lastName;
 
     public Customer() {}
