@@ -1,6 +1,8 @@
 package com.codegym.cms.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "customers")
@@ -9,7 +11,9 @@ public class Customer {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
+    @NotEmpty
     private String firstName;
+    @NotEmpty
     private String lastName;
 
     public Customer() {}
